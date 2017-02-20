@@ -1,0 +1,97 @@
+swagger: '2.0'
+info:
+  version: 0.0.1
+  title: Chatie API
+  description: Chatie OpenAPI Specification(f.k.a. Swagger)
+  termsOfService: https://www.chatie.io/tos
+  contact:
+    name: Chatie Dev Team
+    url: http://github.com/Chatie/
+    email: dev@chatie.io
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# all paths will be relative to the basePath specified
+basePath: /v0/
+host: api.chatie.io
+externalDocs:
+  url: https://api.chatie.io/v0/
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+schemes:
+  - https
+  - http
+
+paths:
+  /hosties:
+    get:
+      summary: list hosties
+      operationId: listHosties
+      description: >
+        By passing in the appropriate options, you can search for
+        available hosties in the system
+      responses:
+        200:
+          description: all Hosties
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Hostie'
+        400:
+          description: bad input parameter
+    post:
+      summary: create an new Hostie
+      operationId: createHostie
+      description: Create an new Hostie for current user
+      parameters:
+        - in: body
+          name: hostie
+          description: Hostie item to add
+          schema:
+            $ref: '#/definitions/Hostie'
+      responses:
+        201:
+          description: item created
+          schema:
+            $ref: '#/definitions/Hostie'
+        400:
+          description: invalid input, object invalid
+        409:
+          description: an existing item already exists
+definitions:
+  Hostie:
+    type: object
+    required:
+      - id
+      - name
+      - token
+      - createTime
+    properties:
+      id:
+        type: string
+        format: uuid
+        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+      name:
+        type: string
+        example: Widget Adapter
+      token:
+        type: string
+        format: uuid
+        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+      createTime:
+        type: string
+        format: int32
+        example: 4124324312
+      status:
+        $ref: '#/definitions/HostieStatus'
+  HostieStatus:
+    type: string
+    enum:
+      - Offline
+      - Online
+      

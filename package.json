@@ -1,0 +1,28 @@
+{
+  "name": "@chatie/api",
+  "version": "0.0.1",
+  "description": "Chatie.io API",
+  "main": "index.js",
+  "scripts": {
+    "edit": "docker run -ti --rm --volume=\"$(pwd)\":/swagger -p 8080:8080 zixia/swagger-edit spec/swagger.yaml",
+    "test": "echo tested"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chatie/api.git"
+  },
+  "keywords": [
+    "chatbot",
+    "framework",
+    "openapi"
+  ],
+  "author": "Huan LI <zixia@zixia.net>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/Chatie/api/issues"
+  },
+  "homepage": "https://github.com/Chatie/api#readme",
+  "devDependencies": {
+    "swagger-editor-server": "^1.0.0"
+  }
+}
