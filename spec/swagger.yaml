@@ -1,8 +1,10 @@
 swagger: '2.0'
 info:
   version: 0.0.1
-  title: Chatie API
-  description: Chatie OpenAPI Specification(f.k.a. Swagger)
+  title: Chatie API Specification
+  description: |
+    Chatie Open API Specification(f.k.a. Swagger)
+
   termsOfService: https://www.chatie.io/tos
   contact:
     name: Chatie Dev Team
@@ -13,10 +15,10 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 
 # all paths will be relative to the basePath specified
-basePath: /v0/
+basePath: /v0
 host: api.chatie.io
 externalDocs:
-  url: https://api.chatie.io/v0/
+  url: https://api.chatie.io/docs
 
 consumes:
   - application/json
@@ -27,12 +29,38 @@ schemes:
   - https
   - http
 
+tags:
+  - name: Hostie
+    description: Hostie Operations
+  - name: Botie
+    description: Botie Operations
+
 paths:
+  /boties:
+    get:
+      tags: [Botie]
+      summary: List Boties
+      operationId: getBoties
+      description: |
+        Get all available `Boties` in the system for current user.
+      responses:
+        200:
+          description: return all `Boties[]` as `Array`
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Botie'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ApiError'
+
   /hosties:
     get:
+      tags: [Hostie]
       summary: List Hosties
-      operationId: listHosties
-      description: >
+      operationId: getHosties
+      description: |
         Get all available `Hosties` in the system for current user.
       responses:
         200:
@@ -46,19 +74,18 @@ paths:
           schema:
             $ref: '#/definitions/ApiError'
     post:
+      tags: [Hostie]
       summary: Create new Hostie
-      operationId: createHostie
+      operationId: postHostie
       description: Create an new `Hostie` for current user
       parameters:
-        - in: query
-          name: name
-          type: string
-        - in: query
-          name: note
-          type: string
+        - name: newHostie
+          in: body
+          schema:
+            $ref: '#/definitions/Hostie'
       responses:
         201:
-          description: >
+          description: |
             `Hostie` created
           schema:
             $ref: '#/definitions/Hostie'
@@ -67,17 +94,18 @@ paths:
           schema:
             $ref: '#/definitions/ApiError'
   /hosties/{id}:
+    parameters:
+      - in: path
+        name: id
+        type: string
+        format: uuid
+        description: >
+          `id` of `Hostie`
+        required: true
     get:
+      tags: [Hostie]
       description: Returns a `Hostie` based on `id`
       operationId: getHostie
-      parameters:
-        - name: id
-          in: path
-          description: >
-            `id` of hostie to fetch
-          required: true
-          type: string
-          format: uuid
       responses:
         '200':
           description: hostie response
@@ -88,72 +116,42 @@ paths:
           schema:
             $ref: '#/definitions/ApiError'
     delete:
+      tags: [Hostie]
       description: Delete a `Hostie` by `id`
       operationId: deleteHostie
-      parameters:
-        - in: path
-          name: id
-          type: string
-          format: uuid
-          description: >
-            `id` of `Hostie` to delete
-          required: true
       responses:
         default:
           description: unexpected error
           schema:
             $ref: '#/definitions/ApiError'
+    patch:
+      tags: [Hostie]
+      description: Update a Hostie
+      operationId: patchHostie
+      parameters:
+        - in: body
+          name: newHostie
+          schema:
+            $ref: '#/definitions/Hostie'
+      responses:
+      
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ApiError'
 
-  /hosties/{id}/note/{note}:
-    put:
-      description: set note for a hostie
-      operationId: setHostieNote
-      parameters:
-        - in: path
-          name: id
-          type: string
-          format: uuid
-          required: true
-          description: hostie id
-        - in: path
-          name: note
-          type: string
-          required: true
-          description: hostie note
-      responses:
-        200:
-          description: success
-        default:
-          description: unexpected error
-  /hosties/{id}/name/{name}:
-    put:
-      description: set name for a hostie
-      operationId: setHostieName
-      parameters:
-        - in: path
-          name: id
-          type: string
-          format: uuid
-          required: true
-          description: hostie id
-        - in: path
-          name: name
-          type: string
-          required: true
-          description: hostie name
-      responses:
-        200:
-          description: success
-        default:
-          description: unexpected error
 definitions:
+  Botie:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+        example: My Botie Name
   Hostie:
     type: object
-    required:
-      - id
-      - name
-      - token
-      - createTime
     properties:
       id:
         type: string
@@ -161,7 +159,7 @@ definitions:
         example: d290f1ee-6c54-4b01-90e6-d701748f0851
       name:
         type: string
-        example: Widget Adapter
+        example: My Hostie Name
       note: 
         type: string
         example: note is just a memo.
@@ -170,15 +168,17 @@ definitions:
         format: uuid
         example: d290f1ee-6c54-4b01-90e6-d701748f0851
       createTime:
-        type: number
+        type: integer
         format: int64
         example: 4124324312
       updateTime:
-        type: number
+        type: integer
         format: int64
+        example: 4124324312
       status:
         $ref: '#/definitions/HostieStatus'
   HostieStatus:
+    description: status of a hostie
     type: string
     enum:
       - Offline

@@ -3,6 +3,29 @@
 
 Chatie Restful API, Powered by OpenAPI Specifiction(f.k.a. Swagger)
 
+### Code Generator
+
+We can generate both server and client code from OpenAPI Specification file.
+
+#### Server
+
+```shell
+$ cd server
+$ ../node_modules/.bin/yo swaggerize --framework=express --apiPath=../spec/swagger.yaml
+```
+
+#### Client
+
+```shell
+```
+
+### Spec-Driven Development
+
+* [What is Spec Driven Development](https://www.mikestowe.com/blog/2014/11/what-is-spec-driven-development.php)
+* [Building Your API for Longevity, Part 1: Spec-Driven Development](https://www.nginx.com/blog/building-api-for-longevity-spec-driven-development/)
+
+#### See Also
+
 * [Design Drivin API Development](http://www.slideshare.net/sofj/design-driven-api-development)
 * [OpenAPI Initiative](https://www.openapis.org/)
 * [Swagger Server Sample 3](https://github.com/BigstickCarpet/swagger-server/tree/master/samples/sample3)
@@ -10,3 +33,6 @@ Chatie Restful API, Powered by OpenAPI Specifiction(f.k.a. Swagger)
 * [The Anatomy of a JSON Web Token](https://scotch.io/tutorials/the-anatomy-of-a-json-web-token)
 * [Authenticate a Node.js API with JSON Web Tokens](https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens)
 * [An Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)
+* [Design Driven Development](http://www.slideshare.net/henrydjacob/design-driven-development)
+* [Intro to RAML - API Spec Driven Development](http://www.hksilicon.com/articles/1082744)
+
