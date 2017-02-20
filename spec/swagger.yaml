@@ -49,11 +49,13 @@ paths:
       operationId: createHostie
       description: Create an new Hostie for current user
       parameters:
-        - in: body
-          name: hostie
-          description: Hostie item to add
-          schema:
-            $ref: '#/definitions/Hostie'
+        - in: header
+          name: name
+          type: string
+          required: true
+        - in: header
+          name: note
+          type: string
       responses:
         201:
           description: item created
@@ -79,14 +81,21 @@ definitions:
       name:
         type: string
         example: Widget Adapter
+      note: 
+        type: string
+        example: note is just a memo.
       token:
         type: string
         format: uuid
         example: d290f1ee-6c54-4b01-90e6-d701748f0851
       createTime:
-        type: string
-        format: int32
+        type: number
+        format: int64
         example: 4124324312
+      updateTime:
+        type: number
+        format: int64
+        
       status:
         $ref: '#/definitions/HostieStatus'
   HostieStatus:
