@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/Chatie/api#readme",
   "devDependencies": {
-    "swagger-editor-server": "^1.0.0"
+    "generator-swaggerize": "^3.1.0",
+    "swagger-editor-server": "^1.0.0",
+    "yo": "^1.8.5"
   }
 }

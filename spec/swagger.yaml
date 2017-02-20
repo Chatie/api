@@ -30,41 +30,122 @@ schemes:
 paths:
   /hosties:
     get:
-      summary: list hosties
+      summary: List Hosties
       operationId: listHosties
       description: >
-        By passing in the appropriate options, you can search for
-        available hosties in the system
+        Get all available `Hosties` in the system for current user.
       responses:
         200:
-          description: all Hosties
+          description: return all `Hosties[]` as `Array`
           schema:
             type: array
             items:
               $ref: '#/definitions/Hostie'
-        400:
-          description: bad input parameter
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ApiError'
     post:
-      summary: create an new Hostie
+      summary: Create new Hostie
       operationId: createHostie
-      description: Create an new Hostie for current user
+      description: Create an new `Hostie` for current user
       parameters:
-        - in: header
+        - in: query
           name: name
           type: string
-          required: true
-        - in: header
+        - in: query
           name: note
           type: string
       responses:
         201:
-          description: item created
+          description: >
+            `Hostie` created
           schema:
             $ref: '#/definitions/Hostie'
-        400:
-          description: invalid input, object invalid
-        409:
-          description: an existing item already exists
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ApiError'
+  /hosties/{id}:
+    get:
+      description: Returns a `Hostie` based on `id`
+      operationId: getHostie
+      parameters:
+        - name: id
+          in: path
+          description: >
+            `id` of hostie to fetch
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: hostie response
+          schema:
+            $ref: '#/definitions/Hostie'
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ApiError'
+    delete:
+      description: Delete a `Hostie` by `id`
+      operationId: deleteHostie
+      parameters:
+        - in: path
+          name: id
+          type: string
+          format: uuid
+          description: >
+            `id` of `Hostie` to delete
+          required: true
+      responses:
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/ApiError'
+
+  /hosties/{id}/note/{note}:
+    put:
+      description: set note for a hostie
+      operationId: setHostieNote
+      parameters:
+        - in: path
+          name: id
+          type: string
+          format: uuid
+          required: true
+          description: hostie id
+        - in: path
+          name: note
+          type: string
+          required: true
+          description: hostie note
+      responses:
+        200:
+          description: success
+        default:
+          description: unexpected error
+  /hosties/{id}/name/{name}:
+    put:
+      description: set name for a hostie
+      operationId: setHostieName
+      parameters:
+        - in: path
+          name: id
+          type: string
+          format: uuid
+          required: true
+          description: hostie id
+        - in: path
+          name: name
+          type: string
+          required: true
+          description: hostie name
+      responses:
+        200:
+          description: success
+        default:
+          description: unexpected error
 definitions:
   Hostie:
     type: object
@@ -95,7 +176,6 @@ definitions:
       updateTime:
         type: number
         format: int64
-        
       status:
         $ref: '#/definitions/HostieStatus'
   HostieStatus:
@@ -103,4 +183,14 @@ definitions:
     enum:
       - Offline
       - Online
-      
+  ApiError:
+    type: object
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
