@@ -79,7 +79,7 @@ paths:
       operationId: postHostie
       description: Create an new `Hostie` for current user
       parameters:
-        - name: newHostie
+        - name: hostie
           in: body
           schema:
             $ref: '#/definitions/Hostie'
@@ -141,22 +141,29 @@ paths:
             $ref: '#/definitions/ApiError'
 
 definitions:
+  UUID:
+    type: string
+    format: uuid
+    example: d290f1ee-6c54-4b01-90e6-d701748f0851
+  Time:
+    type: integer
+    format: int32
+    example: 1487600917
   Botie:
     type: object
     properties:
       id:
-        type: string
-        format: uuid
+        $ref: '#/definitions/UUID'
       name:
         type: string
         example: My Botie Name
   Hostie:
     type: object
+    required:
+      - status
     properties:
       id:
-        type: string
-        format: uuid
-        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        $ref: '#/definitions/UUID'
       name:
         type: string
         example: My Hostie Name
@@ -164,22 +171,17 @@ definitions:
         type: string
         example: note is just a memo.
       token:
-        type: string
-        format: uuid
-        example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        $ref: '#/definitions/UUID'
       createTime:
-        type: integer
-        format: int64
-        example: 4124324312
+        $ref: '#/definitions/Time'
       updateTime:
-        type: integer
-        format: int64
-        example: 4124324312
+        $ref: '#/definitions/Time'
       status:
         $ref: '#/definitions/HostieStatus'
   HostieStatus:
     description: status of a hostie
     type: string
+    default: Offline
     enum:
       - Offline
       - Online
