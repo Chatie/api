@@ -1,6 +1,5 @@
 # Chatie Restful API
-![OpenAPI 2.0 Schema Validation](https://online.swagger.io/validator?url=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
-<img src="https://online.swagger.io/validator?url=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml">
+[![OpenAPI 2.0 Schema Validation](https://online.swagger.io/validator?url=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)](http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
 
 Chatie Restful API, Powered by OpenAPI Specifiction(f.k.a. Swagger)
 
