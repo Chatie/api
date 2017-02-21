@@ -3,6 +3,8 @@
 
 Chatie Restful API, Powered by OpenAPI Specifiction(f.k.a. Swagger)
 
+[View Online via ReDoc](https://rebilly.github.io/ReDoc/?url=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
+
 ### Code Generator
 
 We can generate both server and client code from OpenAPI Specification file.
