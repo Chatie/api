@@ -38,3 +38,6 @@ $ ../node_modules/.bin/yo swaggerize --framework=express --apiPath=../spec/swagg
 * [Design Driven Development](http://www.slideshare.net/henrydjacob/design-driven-development)
 * [Intro to RAML - API Spec Driven Development](http://www.hksilicon.com/articles/1082744)
 
+##### gRPC
+
+* [Introduction to gRPC: A general RPC framework that puts mobile and HTTP/2 first by Mete Atamel](https://www.youtube.com/watch?v=kUz2zjkKxFg)
