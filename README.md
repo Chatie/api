@@ -28,6 +28,7 @@ $ ../node_modules/.bin/yo swaggerize --framework=express --apiPath=../spec/swagg
 
 #### See Also
 
+* [OpenAPI/Swagger-generated API Reference Documentation](https://redocly.github.io/redoc/)
 * [Design Drivin API Development](http://www.slideshare.net/sofj/design-driven-api-development)
 * [OpenAPI Initiative](https://www.openapis.org/)
 * [Swagger Server Sample 3](https://github.com/BigstickCarpet/swagger-server/tree/master/samples/sample3)
