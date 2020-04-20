@@ -49,6 +49,10 @@ cd server
 
 ### master
 
+### 0.1 Apr 20, 2020
+
+1. Upgrade Spec from Swagger 2.0 to OpenAPI 3.0 with the help of [Mermade Swagger 2.0 to OpenAPI 3.0.0 converter](https://mermade.org.uk/openapi-converter)
+
 ### 0.0.1 Feb 19, 2017
 
 Initial version

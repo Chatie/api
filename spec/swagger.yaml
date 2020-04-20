@@ -1,10 +1,9 @@
-swagger: '2.0'
+openapi: 3.0.0
 info:
-  version: 0.0.1
+  version: 0.1.0
   title: Chatie API Specification
   description: |
     Chatie Open API Specification(f.k.a. Swagger)
-
   termsOfService: https://www.chatie.io/tos
   contact:
     name: Chatie Dev Team
@@ -14,185 +13,201 @@ info:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 
-# all paths will be relative to the basePath specified
-basePath: /v0
-host: api.chatie.io
+servers:
+  - url: https://api.chatie.io/v0
+  - url: http://api.chatie.io/v0
+
 externalDocs:
   url: https://api.chatie.io/docs
-
-consumes:
-  - application/json
-produces:
-  - application/json
-
-schemes:
-  - https
-  - http
-
 tags:
   - name: Hostie
     description: Hostie Operations
   - name: Botie
     description: Botie Operations
-
 paths:
   /boties:
     get:
-      tags: [Botie]
+      tags:
+        - Botie
       summary: List Boties
       operationId: getBoties
       description: |
         Get all available `Boties` in the system for current user.
       responses:
-        200:
+        "200":
           description: return all `Boties[]` as `Array`
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Botie'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Botie"
         default:
           description: unexpected error
-          schema:
-            $ref: '#/definitions/ApiError'
-
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
   /hosties:
     get:
-      tags: [Hostie]
+      tags:
+        - Hostie
       summary: List Hosties
       operationId: getHosties
       description: |
         Get all available `Hosties` in the system for current user.
       responses:
-        200:
+        "200":
           description: return all `Hosties[]` as `Array`
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Hostie'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Hostie"
         default:
           description: unexpected error
-          schema:
-            $ref: '#/definitions/ApiError'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
     post:
-      tags: [Hostie]
+      tags:
+        - Hostie
       summary: Create new Hostie
       operationId: postHostie
       description: Create an new `Hostie` for current user
-      parameters:
-        - name: hostie
-          in: body
-          schema:
-            $ref: '#/definitions/Hostie'
+      requestBody:
+        $ref: "#/components/requestBodies/Hostie"
       responses:
-        201:
+        "201":
           description: |
             `Hostie` created
-          schema:
-            $ref: '#/definitions/Hostie'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Hostie"
         default:
           description: unexpected error
-          schema:
-            $ref: '#/definitions/ApiError'
-  /hosties/{id}:
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+  "/hosties/{id}":
     parameters:
       - in: path
         name: id
-        type: string
-        format: uuid
-        description: >
+        description: |
           `id` of `Hostie`
         required: true
+        schema:
+          type: string
+          format: uuid
     get:
-      tags: [Hostie]
+      tags:
+        - Hostie
       description: Returns a `Hostie` based on `id`
       operationId: getHostie
       responses:
-        '200':
+        "200":
           description: hostie response
-          schema:
-            $ref: '#/definitions/Hostie'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Hostie"
         default:
           description: unexpected error
-          schema:
-            $ref: '#/definitions/ApiError'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
     delete:
-      tags: [Hostie]
+      tags:
+        - Hostie
       description: Delete a `Hostie` by `id`
       operationId: deleteHostie
       responses:
         default:
           description: unexpected error
-          schema:
-            $ref: '#/definitions/ApiError'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
     patch:
-      tags: [Hostie]
+      tags:
+        - Hostie
       description: Update a Hostie
       operationId: patchHostie
-      parameters:
-        - in: body
-          name: newHostie
-          schema:
-            $ref: '#/definitions/Hostie'
+      requestBody:
+        $ref: "#/components/requestBodies/Hostie"
       responses:
-      
         default:
           description: unexpected error
-          schema:
-            $ref: '#/definitions/ApiError'
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
 
-definitions:
-  UUID:
-    type: string
-    format: uuid
-    example: d290f1ee-6c54-4b01-90e6-d701748f0851
-  Time:
-    type: integer
-    format: int32
-    example: 1487600917
-  Botie:
-    type: object
-    properties:
-      id:
-        $ref: '#/definitions/UUID'
-      name:
-        type: string
-        example: My Botie Name
-  Hostie:
-    type: object
-    required:
-      - status
-    properties:
-      id:
-        $ref: '#/definitions/UUID'
-      name:
-        type: string
-        example: My Hostie Name
-      note: 
-        type: string
-        example: note is just a memo.
-      token:
-        $ref: '#/definitions/UUID'
-      createTime:
-        $ref: '#/definitions/Time'
-      updateTime:
-        $ref: '#/definitions/Time'
-      status:
-        $ref: '#/definitions/HostieStatus'
-  HostieStatus:
-    description: status of a hostie
-    type: string
-    default: Offline
-    enum:
-      - Offline
-      - Online
-  ApiError:
-    type: object
-    required:
-      - code
-      - message
-    properties:
-      code:
-        type: integer
-        format: int32
-      message:
-        type: string
+components:
+  requestBodies:
+    Hostie:
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Hostie"
+  schemas:
+    UUID:
+      type: string
+      format: uuid
+      example: d290f1ee-6c54-4b01-90e6-d701748f0851
+    Time:
+      type: integer
+      format: int64
+      example: 1487600917
+    Botie:
+      type: object
+      properties:
+        id:
+          $ref: "#/components/schemas/UUID"
+        name:
+          type: string
+          example: My Botie Name
+    Hostie:
+      type: object
+      required:
+        - status
+      properties:
+        id:
+          $ref: "#/components/schemas/UUID"
+        name:
+          type: string
+          example: My Hostie Name
+        note:
+          type: string
+          example: note is just a memo.
+        token:
+          $ref: "#/components/schemas/UUID"
+        createTime:
+          $ref: "#/components/schemas/Time"
+        updateTime:
+          $ref: "#/components/schemas/Time"
+        status:
+          $ref: "#/components/schemas/HostieStatus"
+    HostieStatus:
+      description: status of a hostie
+      type: string
+      default: Offline
+      enum:
+        - Offline
+        - Online
+    ApiError:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
