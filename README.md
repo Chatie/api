@@ -4,8 +4,8 @@
 
 Chatie Restful API, Powered by OpenAPI Specifiction(f.k.a. Swagger)
 
-[Swagger Editor Online](http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
-[Swagger Generator](https://generator.swagger.io/?url=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
+- [Swagger Editor Online](http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
+- [Swagger Generator](https://generator.swagger.io/?url=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
 
 ## Code Generator
 
@@ -49,9 +49,13 @@ cd server
 
 ### master
 
+### 0.2 Apr 20, 2020
+
+1. Enable DevOps Tools
+
 ### 0.1 Apr 20, 2020
 
-1. Upgrade Spec from Swagger 2.0 to OpenAPI 3.0 with the help of [Mermade Swagger 2.0 to OpenAPI 3.0.0 converter](https://mermade.org.uk/openapi-converter)
+1. Upgrade Spec from Swagger 2.0 to OpenAPI 3.0 with the help of [Mermade Swagger 2.0 to OpenAPI 3.0.0 converter](https://mermade.org.uk/openapi-converter) [#2](https://github.com/Chatie/api/issues/2)
 
 ### 0.0.1 Feb 19, 2017
 

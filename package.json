@@ -1,11 +1,23 @@
 {
   "name": "@chatie/api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Chatie.io API",
   "main": "index.js",
   "scripts": {
+    "clean": "shx rm -fr dist/* generated/*",
+    "dist": "npm run clean && npm run generate && tsc && shx mv generated/ dist/",
     "edit": "docker run -ti --rm --volume=\"$(pwd)\":/swagger -p 8080:8080 zixia/swagger-edit spec/swagger.yaml",
-    "test": "echo tested"
+    "example:server": "nodemon --exec ts-node examples/server.ts",
+    "example:client": "ts-node examples/client.ts",
+    "generate": "bash -O globstar -x scripts/generate-stub.sh",
+    "lint": "npm run lint:es && npm run lint:ts && npm run lint:oas",
+    "lint:es": "eslint --ignore-pattern fixtures/ \"src/**/*.ts\" \"tests/**/*.ts\" \"examples/**/*.ts\"",
+    "lint:ts": "tsc --noEmit",
+    "lint:oas": "echo To be added ... OAS linter",
+    "test": "npm run lint && npm run test:unit",
+    "test:pack": "bash -x scripts/npm-pack-testing.sh",
+    "test:unit": "blue-tape -r ts-node/register \"src/**/*.spec.ts\" \"tests/**/*.spec.ts\"",
+    "pack": "npm pack"
   },
   "repository": {
     "type": "git",
@@ -23,8 +35,23 @@
   },
   "homepage": "https://github.com/Chatie/api#readme",
   "devDependencies": {
+    "@chatie/eslint-config": "^0.8.1",
+    "@chatie/git-scripts": "^0.6.1",
+    "@chatie/semver": "^0.4.7",
+    "@chatie/tsconfig": "^0.8.0",
     "generator-swaggerize": "^3.1.0",
+    "oas-linter": "^3.1.2",
+    "pkg-jq": "^0.2.4",
     "swagger-editor-server": "^1.0.0",
-    "yo": "^1.8.5"
+    "tstest": "^0.4.10"
+  },
+  "dependencies": {},
+  "git": {
+    "scripts": {
+      "pre-push": "npx git-scripts-pre-push"
+    }
+  },
+  "publishConfig": {
+    "tag": "next"
   }
 }
