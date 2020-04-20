@@ -5,6 +5,7 @@
 Chatie Restful API, Powered by OpenAPI Specifiction(f.k.a. Swagger)
 
 [Swagger Editor Online](http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
+[Swagger Generator](https://generator.swagger.io/?url=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
 
 ## Code Generator
 
