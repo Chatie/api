@@ -2,10 +2,19 @@
 
 [![OpenAPI Specification Schema Validation](https://online.swagger.io/validator?url=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
 
+![Open API 3 Specification](docs/images/api-logo.png)
+
+> Credit: [Icon Library](http://icon-library.com/icon/rest-api-icon-19.html)
+
 Chatie Restful API, Powered by OpenAPI Specifiction(f.k.a. Swagger)
 
 - [Swagger Editor Online](http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
 - [Swagger Generator](https://generator.swagger.io/?url=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
+
+## Princinples: Spec-Driven Development
+
+- [What is Spec Driven Development](https://www.mikestowe.com/blog/2014/11/what-is-spec-driven-development.php)
+- [Building Your API for Longevity, Part 1: Spec-Driven Development](https://www.nginx.com/blog/building-api-for-longevity-spec-driven-development/)
 
 ## Code Generator
 
@@ -22,11 +31,6 @@ cd server
 
 ```shell
 ```
-
-## Spec-Driven Development
-
-- [What is Spec Driven Development](https://www.mikestowe.com/blog/2014/11/what-is-spec-driven-development.php)
-- [Building Your API for Longevity, Part 1: Spec-Driven Development](https://www.nginx.com/blog/building-api-for-longevity-spec-driven-development/)
 
 ### See Also
 
@@ -49,13 +53,10 @@ cd server
 
 ### master
 
-### 0.2 Apr 20, 2020
-
-1. Enable DevOps Tools
-
 ### 0.1 Apr 20, 2020
 
 1. Upgrade Spec from Swagger 2.0 to OpenAPI 3.0 with the help of [Mermade Swagger 2.0 to OpenAPI 3.0.0 converter](https://mermade.org.uk/openapi-converter) [#2](https://github.com/Chatie/api/issues/2)
+1. Enable DevOps Tools
 
 ### 0.0.1 Feb 19, 2017
 
