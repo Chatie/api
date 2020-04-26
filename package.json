@@ -1,6 +1,6 @@
 {
   "name": "@chatie/api",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Chatie.io API",
   "main": "index.js",
   "scripts": {
@@ -45,8 +45,7 @@
     "swagger-editor-server": "^1.0.0",
     "tstest": "^0.4.10"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "git": {
     "scripts": {
       "pre-push": "npx git-scripts-pre-push"
