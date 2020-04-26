@@ -45,7 +45,8 @@
     "swagger-editor-server": "^1.0.0",
     "tstest": "^0.4.10"
   },
-  "dependencies": {},
+  "dependencies": {
+  },
   "git": {
     "scripts": {
       "pre-push": "npx git-scripts-pre-push"

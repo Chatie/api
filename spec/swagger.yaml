@@ -2,8 +2,7 @@ openapi: 3.0.0
 info:
   version: 0.1.0
   title: Chatie API Specification
-  description: |
-    Chatie Open API Specification(f.k.a. Swagger)
+  description: Chatie Open API Specification(f.k.a. Swagger)
   termsOfService: https://www.chatie.io/tos
   contact:
     name: Chatie Dev Team

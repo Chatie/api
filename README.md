@@ -32,7 +32,20 @@ cd server
 ```shell
 ```
 
-### See Also
+## OAS3 Generators
+
+Spec/Design Driven Development Tools:
+
+- [horiuchi/dtsgenerator - TypeScript d.ts file generate from JSON Schema file](https://github.com/horiuchi/dtsgenerator)
+- [openapitools/openapi-generator - Generator for server stubs for OpenAPI Spec v3 (writen in Java)](https://github.com/openapitools/openapi-generator)
+- [swagger-api/swagger-codegen - a template-driven engine to generate server stubs by parsing your OpenAPI / Swagger definition](https://github.com/swagger-api/swagger-codegen)
+- [Mermade/openapi-codegen - OpenAPI 3.0 CodeGen plus Node.js minus the Java and emojis](https://github.com/Mermade/openapi-codegen)
+
+## Toolsets
+
+- [cdimascio/express-openapi-validator - Auto-validates api requests, responses, and securities using ExpressJS and an OpenAPI Specification 3](https://github.com/cdimascio/express-openapi-validator)
+
+## See Also
 
 - [OpenAPI/Swagger-generated API Reference Documentation](https://redocly.github.io/redoc/)
 - [Design Drivin API Development](http://www.slideshare.net/sofj/design-driven-api-development)
@@ -44,6 +57,8 @@ cd server
 - [An Introduction to OAuth 2](https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2)
 - [Design Driven Development](http://www.slideshare.net/henrydjacob/design-driven-development)
 - [Intro to RAML - API Spec Driven Development](http://www.hksilicon.com/articles/1082744)
+- [LoopBack - Defining the API using code-first approach](https://loopback.io/doc/en/lb4/Defining-the-API-using-code-first-approach.html#define-the-api-from-code-first-approach)
+- [LoopBack - OpenAPI generator](https://loopback.io/doc/en/lb4/OpenAPI-generator.html)
 
 ## History
 
@@ -64,7 +79,8 @@ Initial version
 
 ## Author
 
-[Huan LI](https://github.com/huan) ([李卓桓](http://linkedin.com/in/zixia)),
+[Huan LI](https://github.com/huan)
+([李卓桓](http://linkedin.com/in/zixia)),
 Tencent TVP of Chatbot, \<zixia@zixia.net\>
 
 [![Profile of Huan LI (李卓桓) on StackOverflow](https://stackexchange.com/users/flair/265499.png)](https://stackexchange.com/users/265499)
