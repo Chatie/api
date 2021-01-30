@@ -11,6 +11,11 @@ Chatie Restful API, Powered by OpenAPI Specifiction(f.k.a. Swagger)
 - [Swagger Editor Online](http://editor.swagger.io/#/?import=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
 - [Swagger Generator](https://generator.swagger.io/?url=https://raw.githubusercontent.com/Chatie/api/master/spec/swagger.yaml)
 
+
+## Motivation
+
+Describe our RESTful APIs in [OpenAPI Specification](https://en.wikipedia.org/wiki/OpenAPI_Specification), which is an Interface Description Language under Linux Foundation, former [Swagger](https://en.wikipedia.org/wiki/Swagger_(software)). We believe our API will be improved greatly after the specification has been implemented.
+
 ## Princinples: Spec-Driven Development
 
 - [What is Spec Driven Development](https://www.mikestowe.com/blog/2014/11/what-is-spec-driven-development.php)
