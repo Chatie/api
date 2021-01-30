@@ -40,6 +40,7 @@ Spec/Design Driven Development Tools:
 - [openapitools/openapi-generator - Generator for server stubs for OpenAPI Spec v3 (writen in Java)](https://github.com/openapitools/openapi-generator)
 - [swagger-api/swagger-codegen - a template-driven engine to generate server stubs by parsing your OpenAPI / Swagger definition](https://github.com/swagger-api/swagger-codegen)
 - [Mermade/openapi-codegen - OpenAPI 3.0 CodeGen plus Node.js minus the Java and emojis](https://github.com/Mermade/openapi-codegen)
+- [fmvilas/swagger-node-codegen](https://github.com/fmvilas/swagger-node-codegen)
 
 ## Toolsets
 
@@ -59,6 +60,7 @@ Spec/Design Driven Development Tools:
 - [Intro to RAML - API Spec Driven Development](http://www.hksilicon.com/articles/1082744)
 - [LoopBack - Defining the API using code-first approach](https://loopback.io/doc/en/lb4/Defining-the-API-using-code-first-approach.html#define-the-api-from-code-first-approach)
 - [LoopBack - OpenAPI generator](https://loopback.io/doc/en/lb4/OpenAPI-generator.html)
+- [OpenAPI.Tools](https://openapi.tools)
 
 ## History
 
