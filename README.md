@@ -94,6 +94,6 @@ Tencent TVP of Chatbot, \<zixia@zixia.net\>
 
 ## Copyright & License
 
-- Code & Docs © 2018-now Huan LI \<zixia@zixia.net\>
+- Code & Docs © 2017-now Huan LI \<zixia@zixia.net\>
 - Code released under the Apache-2.0 License
 - Docs released under Creative Commons
