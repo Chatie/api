@@ -37,6 +37,10 @@ cd server
 ```shell
 ```
 
+## gRPC to OpenAPI Specification
+
+- [gRPC to JSON proxy generator following the gRPC HTTP spec](https://github.com/grpc-ecosystem/grpc-gateway) ([talk video](https://youtu.be/Pq1paKC-fXk))
+
 ## OAS3 Generators
 
 Spec/Design Driven Development Tools:
