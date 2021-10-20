@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/Chatie/api#readme",
   "devDependencies": {
-    "@chatie/eslint-config": "^0.12.1",
+    "@chatie/eslint-config": "^1.0.2",
     "@chatie/git-scripts": "^0.6.1",
     "@chatie/semver": "^0.4.7",
     "@chatie/tsconfig": "^0.10.1",
