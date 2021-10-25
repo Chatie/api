@@ -43,7 +43,7 @@
     "oas-linter": "^3.1.2",
     "pkg-jq": "^0.2.4",
     "swagger-editor-server": "^1.0.0",
-    "tstest": "^0.4.10"
+    "tstest": "^1.0.1"
   },
   "dependencies": {},
   "git": {
